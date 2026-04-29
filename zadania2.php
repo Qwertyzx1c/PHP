@@ -109,3 +109,5 @@ function kalk($a, $znak, $b){
 }
     kalk(3, "+", 3)
 ?>
+
+8.
