@@ -92,3 +92,20 @@ if ($liczba % 4 == 0) {
 ?>
 
 7.
+<?php
+
+
+function kalk($a, $znak, $b){
+    if ($znak == "+") {
+        $c = $a + $b;
+    } elseif ($znak == "-"){
+        $c = $a - $b;
+    } elseif ($znak == "/"){
+        $c = $a / $b;
+    } elseif ($znak == "*"){
+        $c = $a * $b;
+    }
+    echo "znak: " . $znak . "wynik: " . $c;
+}
+    kalk(3, "+", 3)
+?>
