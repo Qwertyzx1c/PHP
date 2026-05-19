@@ -213,3 +213,52 @@ echo '</pre>';
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 1.
+session_start();
+$_SESSION["user_id"] = 1;
+$_SESSION["username"] = "Miku";
+$_SESSION["email"] = "email@gmail.com";
+
+if (isset($_SESSION["username"])) {
+    echo "Zalogowany jako: " . $_SESSION["username"];
+}
+
+2.
+if (isset($_SESSION["username"])) {
+    echo "Zalogowany jako: " . $_SESSION["username"];
+}
+
+3.
+session_start();
+$_SESSION["user_id"] = 1;
+$_SESSION["username"] = "Miku";
+$_SESSION["email"] = "email@gmail.com";
+unset($_SESSION["username"]);
+
+4.
+session_start();
+$_SESSION["user_id"] = 1;
+$_SESSION["username"] = "Miku";
+$_SESSION["email"] = "email@gmail.com";
+session_destroy();
+
+5.
+if (!isset($_SESSION['user_lang'])) {
+    $_SESSION['user_lang'] = 'pl'; // Język domyślny
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1.
+function podzielLiczby($liczba1, $liczba2) {
+    try {
+        if ($liczba2 == 0) {
+            throw new Exception("Nie można dzielić przez zero!");
+        }
+        $wynik = $liczba1 / $liczba2;
+        return $wynik;
+    } catch (Exception $e) {
+        return "Wystąpił błąd: " . $e->getMessage();
+    }
+
+}
+echo "". podzielliczby(2,1)
