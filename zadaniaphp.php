@@ -148,3 +148,37 @@ $user = [
 
 print_r(array_keys($user));
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1.
+function sayHello($name) {
+    echo "Hello!, $name";
+}
+sayHello($name = "Kapeć");
+
+2.
+function multiply($a, $b) {
+    echo $a * $b;
+}
+multiply($a = 3, $b = 2,);
+
+3.
+function isEven($n) {
+    if ($n * 2) {
+        echo 'TRUE';
+    } else {
+        echo 'FALSE';
+    }
+}
+isEven($n = 2);
+
+4.
+function formatPrice($price) {
+    echo number_format($price, 2, ',', ' '); 
+}
+formatPrice($price = 20);
+
+5.
+function greetUser($name, $age) {
+    echo "Mam na imie " . $name . " i mam " . $age . " lat "; 
+}
+greetUser($name = "Jan", $age = 28);
