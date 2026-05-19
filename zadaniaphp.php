@@ -151,7 +151,7 @@ print_r(array_keys($user));
 
 1.
 function sayHello($name) {
-    echo "Hello!, $name";
+    echo "Witaj!, $name";
 }
 sayHello($name = "Kapeć");
 
@@ -182,3 +182,34 @@ function greetUser($name, $age) {
     echo "Mam na imie " . $name . " i mam " . $age . " lat "; 
 }
 greetUser($name = "Jan", $age = 28);
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1.
+setcookie("username", "Jan", time() + (86400 * 7), "/");
+
+if (isset($_COOKIE["username"])) {
+    echo "Witaj, " . $_COOKIE["username"];
+}
+
+2.
+if (isset($_COOKIE["username"])) {
+    echo "Witaj, " . $_COOKIE["username"];
+} else {
+    echo "Nie ma username";
+}
+
+3.
+setcookie("background-color", "lightblue", time() + (86400 * 7), "/");
+
+4.
+setcookie("session_id", "", time() - 3600, "/");
+
+5.
+echo '<pre>';
+print_r($_COOKIE);
+echo '</pre>';
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1.
