@@ -127,3 +127,24 @@ $product = [
 echo $product['name'];
 
 3.
+$numbers = [1, 2, 3, 4];
+array_push($numbers, 5, 6);
+echo $numbers[4];
+
+4.
+$fruits = ["Orange", "Apple", "Banan", "Ananas"];
+if (in_array("Banan", $fruits)){
+    echo "Banan jest";
+} else {
+    echo "Nie ma bananananananananananananananananananananananananananananananananananananana";
+}
+
+5.
+$user = [
+    'name' => 'Jan',
+    'age' => 28,
+    'city' => 'Warszawa'
+];
+
+print_r(array_keys($user));
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
