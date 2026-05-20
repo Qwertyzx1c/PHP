@@ -243,7 +243,7 @@ session_destroy();
 
 5.
 if (!isset($_SESSION['user_lang'])) {
-    $_SESSION['user_lang'] = 'pl'; // Język domyślny
+    $_SESSION['user_lang'] = 'pl';
 }
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -262,3 +262,20 @@ function podzielLiczby($liczba1, $liczba2) {
 
 }
 echo "". podzielliczby(2,1)
+
+2.
+function sprawdzEmail(string $email): void {
+    if (strpos($email, '@') === false) {
+        throw new InvalidArgumentException("Błąd: Adres e-mail musi zawierać znak '@'.");
+    }
+    
+}
+
+try {
+    sprawdzEmail("kontakt@example.com");
+    sprawdzEmail("bez-malpy.com");
+} catch (InvalidArgumentException $e) {
+    echo $e->getMessage();
+}
+   
+3.
