@@ -141,3 +141,13 @@ while($row = mysqli_fetch_assoc($result)) {
 }
 
 10.
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        
+    $id = $_POST['id'];
+        
+    $sql = "DELETE FROM koszyk WHERE id_koszyka = $id";
+        
+    mysqli_query($conn, $sql);
+
+    echo "Usunięto";
+}
