@@ -1,0 +1,172 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+h1 {
+    background-color: green;
+    color: yellowgreen;
+    border-radius: 5px;
+    width: 1000px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    justify-content: center;
+}
+
+#jeden {
+    text-align: center;
+    font-weight: 700;
+    font-size: 25px;
+    height: 100px;
+    width: 300px;
+    border-radius: 10px;
+    border: 2px solid black;
+    margin-bottom: 10px;
+}
+
+img {
+    width: 800px;
+    height: 450px;
+}
+
+#dwa {
+    text-align: center;
+    font-weight: 700;
+    font-size: 17px;
+    height: 130px;
+    width: 550px;
+    border-radius: 10px;
+    border: 2px solid black;
+    margin-bottom: 10px;
+}
+
+#trzy {
+    text-align: center;
+    font-weight: 700;
+    font-size: 17px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 700px;
+    border-radius: 10px;
+    border: 2px solid black;
+    margin-bottom: 10px;
+}
+
+#cztery {
+    text-align: center;
+    font-weight: 700;
+    font-size: 17px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 700px;
+    border-radius: 10px;
+    border: 2px solid black;
+    margin-bottom: 10px;
+}
+
+#piec {
+    text-align: center;
+    font-weight: 700;
+    font-size: 17px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 700px;
+    border-radius: 10px;
+    border: 2px solid black;
+    margin-bottom: 10px;
+}
+
+#szesc {
+    text-align: center;
+    font-weight: 700;
+    font-size: 17px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 700px;
+    border-radius: 10px;
+    border: 2px solid black;
+    margin-bottom: 10px;
+}
+
+#siedem {
+    text-align: center;
+    font-weight: 700;
+    font-size: 17px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 700px;
+    border-radius: 10px;
+    border: 2px solid black;
+    margin-bottom: 10px;
+}
+
+#osiem {
+    text-align: center;
+    font-weight: 700;
+    font-size: 17px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 700px;
+    border-radius: 10px;
+    border: 2px solid black;
+    margin-bottom: 10px;
+}
+
+#dziewiec {
+    text-align: center;
+    font-weight: 700;
+    font-size: 17px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 700px;
+    border-radius: 10px;
+    border: 2px solid black;
+    margin-bottom: 10px;
+    flex-direction: column;
+}
+
+#dziesiec {
+    text-align: center;
+    font-weight: 700;
+    font-size: 17px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 700px;
+    border-radius: 10px;
+    border: 2px solid black;
+    margin-bottom: 10px;
+}
+
+#triplebakasquad {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: space-between;
+    width: 1600px;
+    height: 500px;
+}
+
+.tripleaura {
+    width: 500px;
+    height: 350px;
+}
