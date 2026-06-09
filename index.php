@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-<img src="Firefly.png" alt="żabka">
+<img src = "{120B40CB-C4C9-4F0B-8B0B-4936C94DCD34}.png" alt="żabka">
 <h1>Oznajmnia połączenie: (1 zad)</h1>
 <div id="jeden">
 <?php
@@ -53,7 +53,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["insert_user"])) {
             VALUES ('$nazwa', '$email', '$haslo')";
 
     if(mysqli_query($conn, $sql)){
-        echo "Dodano użytkownika";
+        echo "Dodano użytkownika"; 
+        header('Location: ./index.php');
     }
 }
 ?>
@@ -85,6 +86,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["update_user"])) {
 
     if(mysqli_query($conn, $sql)){
         echo "Zaktualizowano";
+        header('Location: ./index.php');
+
     }
 }
     ?>
@@ -102,10 +105,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["delete_user"])) {
 
     $id = $_POST['id'];
 
-    $sql = "DELETE FROM uzytkownicy WHERE id='$id'";
+    $sql = "DELETE k FROM koszyk k INNER JOIN uzytkownicy u ON k.id_uzytkownika = u.id WHERE k.id_uzytkownika=$id";
 
     if(mysqli_query($conn, $sql)){
         echo "Usunięto";
+        header('Location: ./index.php');
+
     }
 }
     ?>
@@ -160,6 +165,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["insert_product"])) {
 
    if(mysqli_query($conn, $sql)){
         echo "Dodano produkt";
+        header('Location: ./index.php');
+
     }
 }
 ?>
@@ -188,6 +195,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["update_product"])) {
 
     if(mysqli_query($conn, $sql)){
         echo "Zaktualizowano produkt";
+        header('Location: ./index.php');
+
     }
 }
     ?>
