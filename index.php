@@ -204,16 +204,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["update_product"])) {
 
 <h1>SELECT: (9 zad)</h1>
 <div id='dziewiec'>
+        <form action='index.php' method='POST'>
+    <label for="id">
+        <input type='text' name='id' placeholder='Podaj id...'/>
+    </label>
+    <label for="nazwa">
+        <input type="text" name='nazwa' placeholder='Podaj nazwe...'>
+    </label>
+    <label for="cena">
+        <input type='text' name='cena' placeholder='Podaj cene...'/>
+    </label>
+        <label for="kategoria">
+        <input type='text' name='kategoria' placeholder='Podaj kategorie...'/>
+    </label>
+        <button type="submit" name="select">Ustaw</button>
+    </form>
 <?php
-    $sql = "SELECT koszyk.id_uzytkownika, nazwa, cena, kategoria FROM produkty INNER JOIN koszyk ON produkty.id = koszyk.id_produktu";
-    $result = mysqli_query($conn, $sql);
-    while($row = mysqli_fetch_assoc($result)) {
-        $id = $row['id_uzytkownika'];
-        $nazwa = $row['nazwa'];
-        $cena = $row['cena'];
-        $kategoria = $row['kategoria'];
-        echo "<p> ID: $id - Nazwa: $nazwa - Cena: $cena - Kategoria: $kategoria </p>";
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["select"])) {
+    $sql = "SELECT koszyk.id_uzytkownika, nazwa, cena, kategoria FROM produkty INNER JOIN koszyk ON produkty.id = koszyk.id_produktu WHERE id_uzytkownika = $id";
+    if(mysqli_query($conn, $sql)) {
+        $id = $_POST['id'];
+        $nazwa = $_POST['nazwa'];
+        $cena = $_POST['cena'];
+        $kategoria = $_POST['kategoria'];
+        // echo "<p> ID: $id - Nazwa: $nazwa - Cena: $cena - Kategoria: $kategoria </p>";
     }
+}
 ?>
 </div>
 
