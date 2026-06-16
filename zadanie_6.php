@@ -1,7 +1,10 @@
 <?php
 $telefon = $_POST['telefon'];
 $strona = $_POST['strona'];
-$plik = $_POST['plik'];
+
+$upload = "./rozwiazania/obraz";
+$filename = basename($_FILES['plik']['name']);
+$file = $_FILES['plik'];
 echo "<table>
     <tr>
         <th>telefon</th>
@@ -11,7 +14,6 @@ echo "<table>
     <td>
         <th>$telefon</th>
         <th>$strona</th>
-        <th>$plik</th>
     </td>
 </table>";
 
