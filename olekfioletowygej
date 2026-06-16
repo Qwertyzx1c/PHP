@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<img src = "" alt="infinite void">
+<h1>Oznajmnia połączenie: (1 zad)</h1>
+<div id="d1">
+<?php
+$conn = mysqli_connect("localhost", "root", "", "teto");
+
+if (!$conn) {
+    echo "<h4>Połączenie się nie powiodło</h4>";
+} else {
+    echo "<h4>Połączenie się powiodło</h4>";
+}
+?>
+</div>
+<h1>SELECT: (2 zad)</h1>
+<div id='d2'>
+<?php
+$sql = "SELECT id, nazwa, email FROM uzytkownicy";
+$result = mysqli_query($conn, $sql);
+while($row = mysqli_fetch_assoc($result)) {
+    $id = $row['id'];
+    $name = $row['nazwa'];
+    $email = $row['email'];
+    echo "<p> Id: $id - Imię: $name - Email: $email </p>";
+}
+?>
+</div>
+<h1>INSERT: (3 zad)</h1>
+<div id='d3'>
+<form action="index.php" method="POST" class="skibidi">
+    <label for="nazwa">Nazwa
+        <input type="text" name="nazwa" placeholder="Podaj nazwę...">
+    </label>
+    <label for="email">Email
+        <input type="text" name="email" placeholder="Podaj email...">
+    </label>
+    <label for="haslo">Haslo
+        <input type="text" name="haslo" placeholder="Podaj hasło...">
+    </label>
+
+    <button type="submit" name="insert_user">Dodaj</button>
+</form>
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["insert_user"])) {
+
+    $nazwa = $_POST['nazwa'];
+    $email = $_POST['email'];
+    $haslo = $_POST['haslo'];
+
+    $sql = "INSERT INTO uzytkownicy (nazwa, email, haslo)
+            VALUES ('$nazwa', '$email', '$haslo')";
+
+    if(mysqli_query($conn, $sql)){
+        echo "Dodano użytkownika"; 
+        header('Location: ./index.php');
+    }
+}
+?>
+</div>
+<h1>UPDATE: (4 zad)</h1>
+<div id='d4'>
+    <form action='index.php' method='POST' class="skibidi">
+    <label for="id">ID
+        <input type='text' name='id' placeholder='Podaj id...'/>
+    </label>
+    <label for="nazwa">Nazwa
+        <input type='text' name='nazwa' placeholder='Podaj nazwę...'/>
+    </label>
+    <label for="email">Email
+        <input type='text' name='email' placeholder='Podaj email...'/>
+    </label>
+        <button type="submit" name="update_user">Ustaw</button>
+    </form>
+    <?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["update_user"])) {
+
+    $id = $_POST['id'];
+    $nazwa = $_POST['nazwa'];
+    $email = $_POST['email'];
+
+    $sql = "UPDATE uzytkownicy
+            SET nazwa='$nazwa', email='$email'
+            WHERE id='$id'";
+
+    if(mysqli_query($conn, $sql)){
+        echo "Zaktualizowano";
+        header('Location: ./index.php');
+
+    }
+}
+    ?>
+</div>
+<h1>DELETE: (5 zad)</h1>
+<div id='d5'>
+    <form action='index.php' method='POST' class="skibidi">
+    <label for="id">ID
+        <input type='text' name='id' placeholder='Podaj id...'/>
+    </label>
+        <button type="submit" name="delete_user">Usuń</button>
+    </form>
+    <?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["delete_user"])) {
+
+    $id = $_POST['id'];
+
+    $sql = "DELETE k FROM koszyk k INNER JOIN uzytkownicy u ON k.id_uzytkownika = u.id WHERE k.id_uzytkownika=$id";
+
+    if(mysqli_query($conn, $sql)){
+        echo "Usunięto";
+        header('Location: ./index.php');
+
+    }
+}
+    ?>
+</div>
+<img src="Firefly (1).png" alt="Dante">
+
+<h1>SELECT: (6 zad)</h1>
+<div id='d6'>
+<?php
+$sql = "SELECT id, nazwa, cena FROM produkty WHERE dostępność = 1";
+$result = mysqli_query($conn, $sql);
+echo ("<table>
+<tr> 
+<th>id</th>
+<th>nazwa</th>  
+<th>cena</th>
+</tr>");
+while($row = mysqli_fetch_assoc($result)) {
+    $id = $row['id'];
+    $nazwa = $row['nazwa'];
+    $cena = $row['cena'];
+    echo ("
+    <tr> 
+    <td>$id</td>
+    <td>$nazwa</td>
+    <td>$cena</td>
+    </tr>
+    ");
+}
+echo "</table>";
+?>
+</div>
+
+<h1>INSERT: (7 zad)</h1>
+<div id='d7'>
+<form action="index.php" method="POST" class="skibidi">
+    <label for="id">ID
+        <input type="text" name="id" placeholder="Podaj nazwę...">
+    </label>
+    <label for="nazwa">Nazwa
+        <input type="text" name="nazwa" placeholder="Podaj nazwe...">
+    </label>
+    <label for="cena">Cena
+        <input type="text" name="cena" placeholder="Podaj cene...">
+    </label>
+
+    <button type="submit" name="insert_product">Dodaj</button>
+</form>
+    <?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["insert_product"])) {
+
+    $id = $_POST['id'];
+    $nazwa = $_POST['nazwa'];
+    $cena = $_POST['cena'];
+
+    $sql = "INSERT INTO produkty(id,nazwa,cena)
+            VALUES('$id','$nazwa','$cena')";
+
+   if(mysqli_query($conn, $sql)){
+        echo "Dodano produkt";
+        header('Location: ./index.php');
+
+    }
+}
+?>
+</div>
+
+<h1>UPDATE: (8 zad)</h1>
+<div id='d8'>
+    <form action='index.php' method='POST' class="skibidi">
+    <label for="id">ID
+        <input type='text' name='id' placeholder='Podaj id...'/>
+    </label>
+    <label for="cena">Cena
+        <input type='text' name='cena' placeholder='Podaj cene...'/>
+    </label>
+        <button type="submit" name="update_product">Ustaw</button>
+    </form>
+    <?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["update_product"])) {
+
+    $id = $_POST['id'];
+    $cena = $_POST['cena'];
+
+    $sql = "UPDATE produkty
+            SET cena='$cena'
+            WHERE id='$id'";
+
+    if(mysqli_query($conn, $sql)){
+        echo "Zaktualizowano produkt";
+        header('Location: ./index.php');
+
+    }
+}
+    ?>
+</div>
+
+<h1>SELECT: (9 zad)</h1>
+<div id='d9'>
+        <form action='index.php' method='POST' class="skibidi">
+    <label for="id">ID
+        <input type='text' name='id' placeholder='Podaj id...'/>
+    </label>
+    <label for="nazwa">Nazwa
+        <input type="text" name='nazwa' placeholder='Podaj nazwe...'>
+    </label>
+    <label for="cena">Cena
+        <input type='text' name='cena' placeholder='Podaj cene...'/>
+    </label>
+    <label for="kategoria">Kategoria
+        <input type='text' name='kategoria' placeholder='Podaj kategorie...'/>
+    </label>
+        <button type="submit" name="select">Ustaw</button>
+    </form>
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["select"])) {
+    $sql = "SELECT koszyk.id_uzytkownika, nazwa, cena, kategoria FROM produkty INNER JOIN koszyk ON produkty.id = koszyk.id_produktu WHERE id_uzytkownika = $id";
+    if(mysqli_query($conn, $sql)) {
+        $id = $_POST['id'];
+        $nazwa = $_POST['nazwa'];
+        $cena = $_POST['cena'];
+        $kategoria = $_POST['kategoria'];
+    }
+}
+?>
+</div>
+
+<h1>DELETE: (10 zad)</h1>
+<div id='d1h'>
+<form action='index.php' method='POST' class="skibidi">
+    <label for="id">ID
+        <input type='text' name='id' placeholder='Podaj id...'/>
+    </label>
+    <button type="submit" name="delete_cart">Usuń</button>
+</form>
+<?php    
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["delete_cart"])) {
+
+    $id = $_POST['id'];
+
+    $sql = "DELETE FROM koszyk
+            WHERE id_koszyka='$id'";
+
+    if(mysqli_query($conn, $sql)){
+        echo "Usunięto koszyk";
+    }
+}
+?>
+</div>
+<img src="" alt="cuh">
+
+<div id="teto">
+    <img src="" alt="przepraszam pana" class="akuku">
+    <img src="" alt="chud" class="akuku">
+    <img src="" alt="take the reversal and the amplivied smash together those two diffrent infinities and out comes an imaginary mass imaginary tehnique HOLLOW PURPLE" class="akuku">
+</div>
+</body>
+</html>
