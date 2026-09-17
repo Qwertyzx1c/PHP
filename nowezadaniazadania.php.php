@@ -3,19 +3,19 @@
 
 // 1.
 $name = "Paweł";
-$age = 20;
+$age = mt_rand(1, 100);
 $country = "Polska";
 echo "Nazywam się $name mam  $age lat i mieszkam w  $country";
 echo "<br>";
 
 // 2.
-$width = 8;
-$height = 5;
+$width = mt_rand(1, 100);
+$height = mt_rand(1, 100);
 echo $width * $height;
 echo "<br>";
 
 // 3.
-$liczba = 10;
+$liczba = mt_rand(1, 100);
 echo $liczba + 1;
 echo "<br>";
 
@@ -25,8 +25,8 @@ var_dump($isMember);
 echo "<br>";
 
 // 5.
-$liczba1 = 10;
-$liczba2 = 20;
+$liczba1 = mt_rand(1, 100);
+$liczba2 = mt_rand(1, 100);
 echo $liczba1 + $liczba2;
 echo $liczba1 - $liczba2;
 echo $liczba1 * $liczba2;
