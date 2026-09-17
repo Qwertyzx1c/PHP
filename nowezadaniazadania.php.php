@@ -181,3 +181,76 @@ $user = [
 ];
 
 print_r(array_keys($user));
+
+// Funkcje
+echo "<br>";
+echo "<br>";
+echo "<br>";
+
+//1.
+function sayHello($name) {
+    echo "Witaj!, $name";
+}
+sayHello($name = "Kapeć");
+echo "<br>";
+
+//2.
+function multiply($a, $b) {
+    echo $a * $b;
+}
+multiply($a = mt_rand(1, 100), $b = mt_rand(1, 100,));
+echo "<br>";
+
+//3.
+function isEven($n) {
+    if ($n * 2) {
+        echo 'TRUE';
+    } else {
+        echo 'FALSE';
+    }
+}
+isEven($n = mt_rand(1, 100));
+echo "<br>";
+
+//4.
+function formatPrice($price) {
+    echo number_format($price, 2, ',', ' '); 
+}
+formatPrice($price = mt_rand(1, 100));
+echo "<br>";
+
+//5.
+function greetUser($name, $age) {
+    echo "Mam na imie " . $name . " i mam " . $age . " lat "; 
+}
+greetUser($name = "Jan", $age = mt_rand(1, 1000));
+
+// Ciasteczka
+echo "<br>";
+echo "<br>";
+echo "<br>";
+
+// 1.
+setcookie("username", "Jan", time() + (86400 * 7), "/");
+
+if (isset($_COOKIE["username"])) {
+    echo "Witaj, " . $_COOKIE["username"];
+}
+
+// 2.
+if (isset($_COOKIE["username"])) {
+    echo "Witaj, " . $_COOKIE["username"];
+} else {
+    echo "Nie ma username";
+}
+
+// 3.
+setcookie("background-color", "lightblue", time() + (86400 * 7), "/");
+
+// 4.
+setcookie("session_id", "", time() - 3600, "/");
+
+// 5.
+echo '<pre>';
+print_r($_COOKIE);
+echo '</pre>';
