@@ -1,4 +1,33 @@
 <?php
+session_start();
+?>
+<?php
+$plik = 'licznik.txt';
+if (!file_exists($plik)) {
+    file_put_contents($plik, 0);
+}
+
+$licznik = (int)file_get_contents($plik);
+$licznik++;
+
+
+file_put_contents($plik, $licznik);
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Licznik odwiedzin</title>
+</head>
+<body>
+    <h1>Licznik odwiedzin</h1>
+    <p>Stronę odwiedziłeś
+    <?php 
+    echo $licznik;
+     ?> razy.</p>
+</body>
+</html>
+
+<?php
 // Składnia i zmienne
 
 // 1.
@@ -145,7 +174,7 @@ echo "<br>";
 
 // 1.
 $color = ["red","green","blue"];
-echo $color[mt_rand(0, 2)];
+echo $color[abs(-2)];
 echo "<br>";
 
 // 2.
@@ -161,7 +190,7 @@ echo "<br>";
 // 3.
 $numbers = [1, 2, 3, 4];
 array_push($numbers, 5, 6);
-echo $numbers[mt_rand(0,3)];
+echo $numbers[mt_rand(0,5)];
 echo "<br>";
 
 // 4.
@@ -243,14 +272,61 @@ if (isset($_COOKIE["username"])) {
 } else {
     echo "Nie ma username";
 }
+echo "<br>";
 
 // 3.
 setcookie("background-color", "lightblue", time() + (86400 * 7), "/");
+echo "<br>";
 
 // 4.
 setcookie("session_id", "", time() - 3600, "/");
+echo "<br>";
 
 // 5.
 echo '<pre>';
 print_r($_COOKIE);
 echo '</pre>';
+echo "<br>";
+
+// Sesje
+echo "<br>";
+echo "<br>";
+echo "<br>";
+
+// 1.
+$_SESSION["user_id"] = 1;
+$_SESSION["username"] = "Miku";
+$_SESSION["email"] = "email@gmail.com";
+
+if (isset($_SESSION["username"])) {
+    echo "Zalogowany jako: " . $_SESSION["username"];
+}
+echo "<br>";
+
+// 2.
+if (isset($_SESSION["username"])) {
+    echo "Zalogowany jako: " . $_SESSION["username"];
+}
+echo "<br>";
+
+// 3.
+$_SESSION["user_id"] = 1;
+$_SESSION["username"] = "Miku";
+$_SESSION["email"] = "email@gmail.com";
+unset($_SESSION["username"]);
+echo "<br>";
+
+// 4.
+$_SESSION["user_id"] = 1;
+$_SESSION["username"] = "Miku";
+$_SESSION["email"] = "email@gmail.com";
+session_destroy();
+echo "<br>";
+
+// 5.
+if (!isset($_SESSION['user_lang'])) {
+    $_SESSION['user_lang'] = 'pl';
+}
+echo "<br>";
+
+?>
