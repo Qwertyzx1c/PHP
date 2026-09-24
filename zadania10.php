@@ -1,4 +1,26 @@
 <?php
+
+class Prostokat{
+    public $a;
+    public $b;
+
+    public function area($a, $b){
+        return $a * $b;
+    }
+    public function perimiter($a, $b){
+        echo "<br>";
+        return ($a + $b) * 2;
+    }
+}
+$prostokat = new Prostokat();
+echo $prostokat->area(12, 20);
+echo $prostokat->area(12, 20);
+
+
+
+
+
+
 class Person {
     public $name;
     public $age;
